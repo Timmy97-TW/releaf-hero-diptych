@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homepage Diptych</title>
+<meta name="description" content="How the ReLeaf homepage hero pairs the farm queue photo with a staged lab shot of the bioreactor: the left photo's perspective, four ways to join them, and the shot plan for the right one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ground:#ffffff; --panel:#f3f6f4; --line:#dbe3de; --text:#141a17; --muted:#56625b;
+  --accent:#23684a; --accent-soft:#e3f0e8; --rust:#9a3d22; --rust-soft:#fbeae4;
+  --ink:#070b09; --sig:#35e08a; --guide:#ffcf3a;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"IBM Plex Sans Condensed","IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0c110f; --panel:#141b18; --line:#26312c; --text:#e5ece8; --muted:#9aa9a1;
+    --accent:#7cc79c; --accent-soft:#16291f; --rust:#f0a086; --rust-soft:#2e1a14;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0c110f; --panel:#141b18; --line:#26312c; --text:#e5ece8; --muted:#9aa9a1;
+  --accent:#7cc79c; --accent-soft:#16291f; --rust:#f0a086; --rust-soft:#2e1a14;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;margin:0}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:48px 96px}
+.col{max-width:720px}
+h1{font-family:var(--display);font-size:clamp(2.2rem,1.5rem + 2.6vw,3.4rem);font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:0 0 16px;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.75rem;font-weight:700;margin:0 0 12px;line-height:1.2;text-wrap:balance}
+h3{font-size:1.125rem;font-weight:700;margin:0 0 6px;line-height:1.4}
+p{margin:0 0 12px}
+.lede{font-size:1.125rem;color:var(--muted);max-width:720px}
+section{margin-top:72px}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:block}
+.mono{font-family:var(--mono);font-size:.875em}
+.verdict{margin-top:28px;border-top:2px solid var(--text);padding-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px 32px}
+.verdict div{font-size:.9375rem}
+.verdict b{display:block;font-size:1rem;margin-bottom:4px}
+
+figure{margin:24px 0 0}
+figcaption{font-size:.8125rem;color:var(--muted);margin-top:10px;line-height:1.6;max-width:760px}
+.fig-analysis svg{display:block;width:100%;height:auto;border-radius:2px}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 40px;margin-top:24px}
+.notes dt{font-weight:700;margin-top:14px}
+.notes dd{margin:2px 0 0;color:var(--text);font-size:.9375rem}
+.notes .mono{color:var(--accent)}
+
+.controls{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin:20px 0 0;font-size:.875rem;color:var(--muted)}
+.controls label{display:inline-flex;gap:8px;align-items:center;cursor:pointer}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px}
+.seg button{font:inherit;font-size:.8125rem;background:none;border:0;color:var(--muted);padding:4px 12px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--ground)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.mock{container-type:inline-size;background:var(--ink);color:#fff;border-radius:3px;overflow:hidden;position:relative}
+.mock .head{padding:3.2cqw 3.6cqw 2.2cqw}
+.mock .head img{height:3.1cqw;width:auto;display:block}
+.mock .claim{font-family:var(--sans);font-weight:700;font-size:3.1cqw;line-height:1.1;margin:1.1cqw 0 0;letter-spacing:-.01em}
+.mock .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw;padding:2.4cqw 3.6cqw 3cqw}
+.mock blockquote{margin:0;border-left:.25cqw solid var(--sig);padding:.2cqw 0 .2cqw 1.4cqw;max-width:44cqw;font-size:1.25cqw;line-height:1.55;font-style:italic;color:rgb(255 255 255 / .88)}
+.mock blockquote b{display:block;font-style:normal;color:var(--sig);font-size:1.05cqw;margin-top:.6cqw}
+.mock .credit{font-size:1.05cqw;color:rgb(255 255 255 / .55);text-align:right;line-height:1.5}
+
+.dip{display:grid;grid-template-columns:1fr 1fr;gap:.45cqw;position:relative}
+.dip .half{position:relative;aspect-ratio:1694/1118;overflow:hidden}
+.dip .half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.dip.feather{gap:0}
+.dip.feather .half.r{margin-left:-7cqw;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%);mask-image:linear-gradient(90deg,transparent 0,#000 16%)}
+.tag{position:absolute;left:1cqw;top:1cqw;font-family:var(--mono);font-size:1cqw;letter-spacing:.06em;background:rgb(7 11 9 / .7);color:#fff;padding:.25cqw .7cqw;border-radius:2px;z-index:3}
+.half.r .tag{left:auto;right:1cqw}
+
+.guides{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2;display:none}
+.show-guides .guides{display:block}
+
+.options{display:grid;gap:56px;margin-top:28px}
+.opt{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.opt-text{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 40px}
+.opt-text h3{grid-column:1/-1}
+.opt-text .pro,.opt-text .con{font-size:.9375rem}
+.opt-text .pro b{color:var(--accent)}
+.opt-text .con b{color:var(--rust)}
+.pick{display:inline-block;font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--ground);padding:2px 8px;border-radius:2px;margin-left:8px;vertical-align:3px}
+
+.bleed{position:relative;aspect-ratio:16/10}
+.bleed > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.bleed .over{position:absolute;inset:0;z-index:4;display:grid;grid-template-rows:auto 1fr auto;padding:3cqw 3.6cqw 3.4cqw;pointer-events:none}
+.bleed .over .head{padding:0}
+.bleed .over .head,.bleed .over blockquote{text-shadow:0 1px 18px rgb(7 11 9 / .6)}
+.bleed .over blockquote{grid-row:3;align-self:end;background:rgb(7 11 9 / .5);padding:1.2cqw 1.6cqw;max-width:34cqw}
+.bleed .shade{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(125% 80% at 0% 0%,rgb(7 11 9 / .78) 0%,rgb(7 11 9 / .4) 30%,transparent 62%),linear-gradient(180deg,transparent 60%,rgb(7 11 9 / .6) 100%)}
+.wipe{position:absolute;inset:0;z-index:2}
+.wipe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.wipe-line{position:absolute;top:0;bottom:0;width:2px;background:var(--sig);z-index:5;pointer-events:none;box-shadow:0 0 12px rgb(53 224 138 / .8)}
+.range{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:.875rem;color:var(--muted)}
+.range input{flex:1;accent-color:var(--accent)}
+
+.cur-r{position:absolute;top:0;bottom:0;right:0;width:54%;z-index:2;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgb(0 0 0 / .28) 8%,rgb(0 0 0 / .55) 16%,rgb(0 0 0 / .85) 28%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,rgb(0 0 0 / .28) 8%,rgb(0 0 0 / .55) 16%,rgb(0 0 0 / .85) 28%,#000 38%)}
+.cur-r img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.cur-r::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgb(7 11 9 / .9) 0%,rgb(7 11 9 / .5) 30%,transparent 70%)}
+.lost{position:absolute;z-index:6;border:.3cqw dashed #ff7a59;border-radius:50%;pointer-events:none}
+.lost-label{position:absolute;z-index:6;font-size:1.3cqw;background:#ff7a59;color:#1a0d08;padding:.3cqw .8cqw;font-weight:700;border-radius:2px;white-space:nowrap}
+
+.phone-row{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:720px){.phone-row{grid-template-columns:minmax(0,1fr)}}
+.phone{border:10px solid #1b211e;border-radius:34px;overflow:hidden;background:var(--ink);max-width:320px}
+.phone .mock{border-radius:0}
+.phone .head{padding:7cqw 6cqw 5cqw}
+.phone .head img{height:7cqw}
+.phone .claim{font-size:7.4cqw}
+.phone .stack{display:grid;gap:1.4cqw}
+.phone .stack .half{aspect-ratio:1694/1118;position:relative;overflow:hidden}
+.phone .stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phone .stack .tag{font-size:3cqw;padding:.6cqw 1.8cqw}
+.phone blockquote{font-size:3.6cqw;max-width:none;border-left-width:.8cqw;padding-left:3.6cqw}
+.phone blockquote b{font-size:3.1cqw}
+.phone .foot{padding:6cqw 6cqw 8cqw;display:block}
+
+.sketch svg{display:block;width:100%;height:auto;border-radius:2px}
+.plan-wrap{overflow-x:auto;background:var(--panel);border-radius:3px;padding:16px}
+.plan-wrap svg{display:block;width:100%;min-width:560px;height:auto}
+.plan-wrap text{font-family:var(--sans)}
+
+.tbl-wrap{overflow-x:auto;margin-top:20px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9375rem}
+th,td{text-align:left;vertical-align:top;padding:10px 14px 10px 0;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:2px solid var(--text)}
+td:first-child{font-weight:700;white-space:nowrap}
+td .mono{color:var(--accent)}
+
+.poses{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 28px;margin-top:20px}
+.poses div{border-top:1px solid var(--line);padding:10px 0 12px;font-size:.9375rem}
+.poses b{font-family:var(--mono);color:var(--accent);margin-right:8px}
+
+.check{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 40px}
+.check li{border-top:1px solid var(--line);padding:12px 0 12px 28px;position:relative;font-size:.9375rem}
+.check li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;border:1.5px solid var(--accent);border-radius:2px}
+.warn{background:var(--rust-soft);border-left:3px solid var(--rust);padding:14px 18px;margin-top:24px;font-size:.9375rem;max-width:760px}
+.warn b{color:var(--rust)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px 40px;margin-top:24px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="col">
+  <span class="eyebrow">ReLeaf · homepage landing visual</span>
+  <h1>Homepage diptych</h1>
+  <p class="lede">On the left, the team walking in a line behind Farmer Chen into her field. On the right, a shot we take next week in the classroom, with the bioreactor fully assembled. This page takes the left photo's perspective apart, works out how the right one has to be staged and shot, and then puts several ways of joining them side by side. The right half is a drawing for now; it gets swapped for the real photo once we have it.</p>
+</header>
+
+<div class="verdict">
+  <div><b>Make the right photo a mirror of the left</b>The line of people recedes to the back left, and the bioreactor stands at the head of the line, in the spot Farmer Chen holds in the left photo. The two lines end at the seam: the farmer on one side, the machine on the other.</div>
+  <div><b>Line up two things</b>Both horizons sit 44% down from the top edge, and each vanishing point falls about 3% past the seam. Camera at chest height, held level, phone on 1×.</div>
+  <div><b>The homepage layout has to change</b>The queue photo is wide. It does not fit the current reactor column on the right 54%, and it does not fit half of a 50/50 split either. Make the hero a wide diptych of about 3:1 with the headline above the photos, and stack the two on phones.</div>
+</div>
+
+<!-- ================================================= 1 -->
+<section id="analysis">
+  <span class="eyebrow">Left photo</span>
+  <h2>Reading the left photo</h2>
+  <div class="col"><p>Lines measured on the photo. Yellow is perspective: the line through the tops of the heads and the line through the shirt hems both run off to the right and meet outside the frame.</p></div>
+  <figure class="fig-analysis">
+    <svg viewBox="0 0 1830 1118" role="img" aria-label="Composition of the left photo: the head line and the hem line meet just past the right edge, the horizon is 44% down, the nearest student's logo is lower left, and Farmer Chen leads the line">
+      <image href="farm-queue.webp" x="0" y="0" width="1694" height="1118"/>
+      <rect x="1694" y="0" width="136" height="1118" fill="#070b09"/>
+      <g fill="none" stroke-linecap="round">
+        <line x1="0" y1="494" x2="1830" y2="494" stroke="#ffcf3a" stroke-width="3" stroke-dasharray="14 10"/>
+        <line x1="150" y1="316" x2="1747" y2="494" stroke="#ffcf3a" stroke-width="4"/>
+        <line x1="120" y1="895" x2="1747" y2="494" stroke="#ffcf3a" stroke-width="4"/>
+        <line x1="700" y1="1118" x2="1747" y2="494" stroke="#ffcf3a" stroke-width="2.5" stroke-dasharray="4 10" opacity=".85"/>
+        <rect x="186" y="578" width="190" height="180" stroke="#35e08a" stroke-width="5" rx="6"/>
+        <rect x="1285" y="444" width="140" height="270" stroke="#ff7a59" stroke-width="5" rx="6"/>
+      </g>
+      <circle cx="1747" cy="494" r="13" fill="#ffcf3a"/>
+      <circle cx="1747" cy="494" r="26" fill="none" stroke="#ffcf3a" stroke-width="3"/>
+      <g font-family="IBM Plex Sans, Arial, sans-serif" font-weight="700" font-size="34" paint-order="stroke" stroke="#070b09" stroke-width="7" stroke-linejoin="round">
+        <text x="1790" y="560" fill="#ffcf3a" text-anchor="end">Vanishing point</text>
+        <text x="1790" y="598" fill="#ffcf3a" text-anchor="end" font-size="26" font-weight="500">3% past the right edge</text>
+        <text x="30" y="480" fill="#ffcf3a">Horizon 44%</text>
+        <text x="190" y="800" fill="#35e08a">Logo (16%, 60%)</text>
+        <text x="1250" y="760" fill="#ff7a59">Farmer Chen, 80%</text>
+        <text x="30" y="70" fill="#ffffff" font-size="30">Dark: trees weigh down the top left</text>
+        <text x="1080" y="70" fill="#ffffff" font-size="30">Bright: sky opens top right</text>
+        <text x="1200" y="1080" fill="#ffffff" font-size="30">Bright: grass</text>
+      </g>
+    </svg>
+    <figcaption>Original is 1694 × 1118. The head line runs from the nearest student (y 320) down to Farmer Chen (y 458); the hem line rises from his shirt hem (y 870). They meet at x 1747, y 494: 3% past the right edge and 44% down. The dotted line is the direction of the ground, and it heads for the same point.</figcaption>
+  </figure>
+
+  <dl class="notes">
+    <div>
+      <dt>One line of people walking away to the right</dt>
+      <dd>The whole photo has a single perspective direction. Heads, shoulders, hems and feet all converge on one point, so the eye walks down the line on its own and lands on Farmer Chen.</dd>
+      <dt>The horizon is at chest height</dt>
+      <dd>The horizon is at <span class="mono">44%</span>, just below the nearest student's shoulders, which puts the camera about 1.4 m off the ground. Every head sits a little above the horizon, so it reads as walking along with them, not looking down on them.</dd>
+      <dt>3.5× from front to back</dt>
+      <dd>The nearest student is about 3.5 to 4 times the size of Farmer Chen, so she is about 3.5 times as far from the camera. For the same depth on the right, the bioreactor has to stand about 3.5 times as far away as the nearest person.</dd>
+    </div>
+    <div>
+      <dt>The logo is the sharpest type in the frame</dt>
+      <dd>The ReLEAF on the nearest student's back sits at <span class="mono">(16%, 60%)</span> and is bigger and clearer than anything else. The nearest person on the right should stand at the mirrored spot, <span class="mono">(84%, 60%)</span>, so the two logos pin down both ends of the hero.</dd>
+      <dt>Weight on the left, light on the right</dt>
+      <dd>Dark trees and the big backs fill the top left; the sky at top right and the grass at bottom right are bright. Mirrored, the right photo wants a dark top right and a bright top left. Then both sides of the seam (the left photo's right edge and the right photo's left edge) are bright, and they join cleanly.</dd>
+      <dt>The rhythm of the bamboo poles</dt>
+      <dd>A row of upright poles cuts the diagonal into bays. On the right, the retort stand, the reactor rod and the table legs can carry the same beat.</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ================================================= 2 -->
+<section id="limit">
+  <span class="eyebrow">Layout</span>
+  <h2>Layout limits</h2>
+  <div class="col">
+    <p>Today the homepage lays the farm photo full width and puts the reactor over the right 54%, fading to the left. Drop the queue photo in and Farmer Chen, with the five people behind her, lands on the covered side (red circle).</p>
+    <p>The line of people runs from 6% to 84% of the frame. Keeping both the nearest student and Farmer Chen needs a frame of at least 1.4:1. Half of a 50/50 split is only 0.8:1, so that fails too. Only two layouts keep both ends: a wide diptych, where each half keeps the photo's own 1.5:1, or a full-bleed hero that shows one photo at a time.</p>
+  </div>
+  <figure>
+    <div class="mock" id="mockE">
+      <div class="bleed">
+        <img src="farm-queue.webp" alt="">
+        <div class="cur-r"><img data-lab="mirror" alt=""></div>
+        <div class="shade"></div>
+        <div class="over">
+          <div class="head"><img src="wordmark.png" alt="ReLeaf"><p class="claim">Every farmer a biomanufacturer.</p></div>
+          <blockquote>As long as it benefits the plants and does not disrupt the balance of nature, I am very willing to try any new technology.<b>Farmer Chen</b></blockquote>
+        </div>
+        <div class="lost" style="left:73%;top:33%;width:14cqw;height:24cqw"></div>
+        <div class="lost-label" style="left:67%;top:25%">Farmer Chen is here, covered</div>
+      </div>
+    </div>
+    <figcaption>The new photo dropped straight into the current hero layout, with the drawing standing in for the reactor photo. The headline and the quote actually clear the student's head and logo; the problem is only the right column.</figcaption>
+  </figure>
+</section>
+
+<!-- ================================================= 3 -->
+<section id="options">
+  <span class="eyebrow">Joining them</span>
+  <h2>Four layouts</h2>
+  <div class="col"><p>Every right half is a drawing built from the perspective measured on the left photo. Turn the guides on to see how the two horizons and vanishing points meet.</p></div>
+  <div class="controls">
+    <label><input type="checkbox" id="guideToggle" checked> Show horizon and vanishing points</label>
+  </div>
+
+  <div class="options show-guides" id="optionsRoot">
+
+    <div class="opt">
+      <div class="mock" id="mockA">
+        <div class="head"><img src="wordmark.png" alt="ReLeaf"><p class="claim">Every farmer a biomanufacturer.</p></div>
+        <div class="dip" id="dipA">
+          <div class="half l"><img src="farm-queue.webp" alt="The team in a line behind Farmer Chen, walking into her field"><span class="tag">FIELD</span><svg class="guides" data-g="farm" viewBox="0 0 1694 1118"></svg></div>
+          <div class="half r"><img data-lab="mirror" alt="Drawing: the team in a line along a lab bench, receding to the back left towards the bioreactor"><span class="tag">LAB · DRAWING</span><svg class="guides" data-g="mirror" viewBox="0 0 1694 1118"></svg></div>
+        </div>
+        <div class="foot">
+          <blockquote>As long as it benefits the plants and does not disrupt the balance of nature, I am very willing to try any new technology.<b>Farmer Chen</b></blockquote>
+          <div class="credit">Left: Farmer Chen's field<br>Right: the assembled bioreactor, in class</div>
+        </div>
+      </div>
+      <div class="opt-text">
+        <h3>A · Mirrored diptych<span class="pick">Pick</span></h3>
+        <p class="pro"><b>Why it works.</b> Both vanishing points fall next to the seam and one horizon runs through both photos, so they read as two halves of one space. The two lines end in the middle, Farmer Chen facing the bioreactor, which is the whole story: we went to listen to the farmer, then came back and built for her. A big back and a logo at each end hold the frame.</p>
+        <p class="con"><b>The cost.</b> The hero stops being full screen and becomes a wide band, so the headline and the quote sit on the dark ground above and below the photos. On a 1280-wide screen the band is about 420 px tall and the logo about 60 px wide: recognisable as the team mark, not large.</p>
+        <div class="controls" style="grid-column:1/-1;margin-top:4px">
+          <span>Seam</span>
+          <span class="seg" role="group" aria-label="Seam treatment">
+            <button type="button" id="seamHard" aria-pressed="true">Hairline</button>
+            <button type="button" id="seamSoft" aria-pressed="false">Feathered</button>
+          </span>
+          <span>Use the hairline. Sunlight outdoors and room light indoors are far apart in colour, and a feathered blend turns muddy grey in the middle.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="mock">
+        <div class="head"><img src="wordmark.png" alt="ReLeaf"><p class="claim">Every farmer a biomanufacturer.</p></div>
+        <div class="dip">
+          <div class="half l"><img src="farm-queue.webp" alt=""><span class="tag">FIELD</span><svg class="guides" data-g="farm" viewBox="0 0 1694 1118"></svg></div>
+          <div class="half r"><img data-lab="parallel" alt="Drawing: the line recedes to the back right towards the bioreactor"><span class="tag">LAB · DRAWING</span><svg class="guides" data-g="parallel" viewBox="0 0 1694 1118"></svg></div>
+        </div>
+        <div class="foot">
+          <blockquote>As long as it benefits the plants and does not disrupt the balance of nature, I am very willing to try any new technology.<b>Farmer Chen</b></blockquote>
+          <div class="credit">Left: Farmer Chen's field<br>Right: the assembled bioreactor, in class</div>
+        </div>
+      </div>
+      <div class="opt-text">
+        <h3>B · Same-direction diptych</h3>
+        <p class="pro"><b>Why it works.</b> Both photos walk to the right, like two panels of a comic: first the field, then back to the classroom. The direction holds, so it reads as time moving forward.</p>
+        <p class="con"><b>The cost.</b> Left of the seam is the smallest figure in the frame, Farmer Chen; right of it, the biggest back. The scale jumps at the seam, so it reads as a cut to the next panel. Good for a timeline on an inner page, less steady as the front door.</p>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="phone-row">
+        <div class="phone">
+          <div class="mock">
+            <div class="head"><img src="wordmark.png" alt="ReLeaf"><p class="claim">Every farmer a biomanufacturer.</p></div>
+            <div class="stack">
+              <div class="half"><img src="farm-queue.webp" alt=""><span class="tag">FIELD</span><svg class="guides" data-g="farm" viewBox="0 0 1694 1118"></svg></div>
+              <div class="half"><img data-lab="mirror" alt=""><span class="tag">LAB · DRAWING</span><svg class="guides" data-g="mirror" viewBox="0 0 1694 1118"></svg></div>
+            </div>
+            <div class="foot"><blockquote>As long as it benefits the plants and does not disrupt the balance of nature, I am very willing to try any new technology.<b>Farmer Chen</b></blockquote></div>
+          </div>
+        </div>
+        <div class="opt-text" style="grid-template-columns:1fr">
+          <h3>C · Phone: A, stacked</h3>
+          <p class="pro"><b>Why it works.</b> No separate portrait shot needed. Stack A's two photos at their own ratio and the eye walks an S: across the field to Farmer Chen on the right, down to the nearest back on the right of the lab, then left to the bioreactor. On a phone the mirror turns into one continuous path.</p>
+          <p class="con"><b>The cost.</b> On a 390 px phone each photo is about 250 px tall and the logos get small. The diagonal of the line is strong enough to carry it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="mock">
+        <div class="bleed" id="wipeBox">
+          <img src="farm-queue.webp" alt="">
+          <div class="wipe" id="wipe"><img data-lab="parallel" alt=""></div>
+          <div class="wipe-line" id="wipeLine"></div>
+          <div class="shade"></div>
+          <div class="over">
+            <div class="head"><img src="wordmark.png" alt="ReLeaf"><p class="claim">Every farmer a biomanufacturer.</p></div>
+            <blockquote>As long as it benefits the plants and does not disrupt the balance of nature, I am very willing to try any new technology.<b>Farmer Chen</b></blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="range"><span>Field</span><input type="range" id="wipeRange" min="0" max="100" value="58" aria-label="Where the field turns into the lab"><span>Lab</span></div>
+      <div class="opt-text">
+        <h3>D · Full-bleed match cut: the people stay, the field becomes a lab</h3>
+        <p class="pro"><b>Why it works.</b> Keeps today's full-screen hero, with the headline and quote where they are now. On scroll the lab sweeps in from the right (or dissolves in), the same row of backs stays in the same place, and the field turns into the classroom. It is a film match cut, and the most memorable of the four.</p>
+        <p class="con"><b>The cost.</b> The right photo must be shot in the same direction, with each person standing where their counterpart stands in the left photo. Off by a little and it looks like two photos that failed to line up. On the day, overlay the left photo semi-transparently on the viewfinder to place people. The drawing has seven people and the photo has eleven, so a real match cut needs more of the team in the shot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= 4 -->
+<section id="shot">
+  <span class="eyebrow">Next week</span>
+  <h2>Right photo, shot plan</h2>
+  <div class="col">
+    <p>A bioreactor has one working point, and seven people cannot crowd round it. So the work is laid out along a long bench: telemetry on the laptop, wiring, pipetting, notes, the pump, the media bottles. Each person takes one stretch, and the reactor itself stands at the head of the line, on the line, not beside the bench. That puts it where Farmer Chen is in the left photo: everyone is walking towards it.</p>
+  </div>
+  <figure class="sketch" id="sketchFig"></figure>
+  <figcaption>Drawn with the horizon measured on the left photo and the mirrored vanishing point; people and objects shrink with distance on the same perspective. Numbers are the standing order, 1 nearest the camera.</figcaption>
+
+  <h3 style="margin-top:40px">Floor plan</h3>
+  <div class="col"><p>Camera on the left, looking right. The line starts 2.3 m ahead of the camera and to its right, and runs off 34° to the left of the camera axis; the reactor is about 8 m away. If the room is too short, shoot along its diagonal, or put the camera outside the door and shoot in.</p></div>
+  <div class="plan-wrap" id="planWrap"></div>
+
+  <h3 style="margin-top:40px">Spec sheet</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Measured on the left photo</th><th>Target for the right photo (mirrored)</th></tr></thead>
+      <tbody>
+        <tr><td>Direction</td><td>Recedes to the back right</td><td>Recedes to the back left. For the same-direction version, swap everything left for right</td></tr>
+        <tr><td>Horizon</td><td><span class="mono">44%</span> from the top</td><td>Camera level, no tilt. Shoot 4:3; when cropping to 3:2, take all the spare height off the top and the horizon lands at <span class="mono">43–44%</span></td></tr>
+        <tr><td>Camera height</td><td>About chest height, just below the nearest person's shoulders</td><td>Lens about <span class="mono">1.40 m</span> off the floor, on a tripod</td></tr>
+        <tr><td>Vanishing point</td><td><span class="mono">3%</span> past the right edge</td><td><span class="mono">3%</span> past the left edge: the bench's front edge and the line of heads, extended, meet just outside the left of the frame</td></tr>
+        <tr><td>Nearest person</td><td>Centre <span class="mono">16%</span>, head top <span class="mono">29%</span>, logo <span class="mono">(16%, 60%)</span>, feet out of frame</td><td>Centre <span class="mono">84%</span>, head top <span class="mono">29%</span>, logo <span class="mono">(84%, 60%)</span>, feet out of frame, about <span class="mono">2.3 m</span> from the camera</td></tr>
+        <tr><td>Far end</td><td>Farmer Chen at <span class="mono">80%</span></td><td>Bioreactor at <span class="mono">25%</span>, on the line, about <span class="mono">8 m</span> from the camera</td></tr>
+        <tr><td>Lens</td><td>—</td><td>Phone 1× (24–28 mm equivalent). Not 0.5×: it stretches the people at the edges</td></tr>
+        <tr><td>Light</td><td>Sun from the camera side, lighting everyone's back</td><td>Key light behind the camera, off to the right and above head height, lighting the backs. If the ceiling lights are blue, switch them off or lock white balance at 5000–5500 K</td></tr>
+        <tr><td>Light and dark</td><td>Dark top left (trees), bright top right (sky), bright bottom right (grass)</td><td>Dark top right (cabinet, dark wall), bright top left (whiteboard or window), clean floor at bottom left</td></tr>
+        <tr><td>Wardrobe</td><td>Cream team shirt, logo on the back</td><td>Same shirt, dark trousers. The nearest person has short hair and no bag; shirts pulled flat so the logo lies smooth</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:40px">Who does what</h3>
+  <div class="poses">
+    <div><b>1</b>Watching the telemetry curve on the laptop, right hand on the trackpad. Back almost square to the camera, turned only 15°; this logo has to be the sharpest</div>
+    <div><b>2</b>Just behind 1 and to the left, head down over a clipboard</div>
+    <div><b>3</b>Both hands wiring the controller box, body turned 30° to the right</div>
+    <div><b>4</b>Holding a pipette, elbow up so the action reads</div>
+    <div><b>5</b>Writing notes or reading a tablet</div>
+    <div><b>6</b>Reading the pump's display, one hand on the pump</div>
+    <div><b>7</b>Steadying a media bottle, looking ahead at the reactor</div>
+    <div><b>Reactor</b>Lights on, coloured culture, lines connected. It ends the line and should be the brightest thing in the left half of the frame</div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h3>Colour grade</h3>
+      <p>Pull the right photo towards the left one: warmer white balance, a little more saturation in the greens, shadows as deep as the trees on the left. Put them side by side and compare the team shirts; the cream must match exactly. The same shirt in both photos is the most accurate colour chart you have.</p>
+    </div>
+    <div>
+      <h3>Either side of the seam</h3>
+      <p>The left photo's right edge runs bright, dark, bright from top to bottom (sky, bushes, grass). The right photo's left edge should roughly follow: whiteboard or bright wall on top, bench and people in the middle, floor below. When the tones meet, the hairline stays a hairline and does not turn into a wall.</p>
+    </div>
+  </div>
+
+  <div class="warn"><b>Never flip either photo horizontally.</b> The logo text would read backwards. Mirrored or same-direction has to be decided on the day, so shoot both.</div>
+</section>
+
+<!-- ================================================= 5 -->
+<section id="checklist">
+  <span class="eyebrow">On the day</span>
+  <h2>Shoot-day checklist</h2>
+  <ul class="check">
+    <li>The day before, measure the room: camera to reactor needs about 8 m. If it is short, use the diagonal or shoot in from the doorway</li>
+    <li>Reactor assembled, lights on, coloured culture, lines connected and no stray tape</li>
+    <li>Seven people in the same team shirt and dark trousers; nearest person with short hair and no bag</li>
+    <li>Tripod, lens 1.40 m up, level and grid turned on, camera kept level</li>
+    <li>Left photo on a tablet for placing people; for D, overlay it semi-transparently on the viewfinder</li>
+    <li>Lock focus and exposure on the nearest person's back (long-press for AE/AF lock on a phone)</li>
+    <li>Mirrored version first, a burst of 10 per pose; keep the frame with the neatest backs and logos</li>
+    <li>Swap the bench side and the key light, then shoot the same-direction version</li>
+    <li>One empty frame with nobody in it, for patching the background later</li>
+    <li>A close-up of every person's back logo, as spares</li>
+    <li>Back at the desk, put the two side by side and check the horizon, the vanishing points and the shirt colour</li>
+  </ul>
+</section>
+
+</div>
+<script>
+(function(){
+/* ---------- lab sketch, drawn in the left photo's frame (1694 x 1118) ------
+   Horizon y 494 and the vanishing point x -53 are the left photo's, mirrored.
+   Camera: 28 mm equivalent on this frame (f = 1317 px), lens 1.40 m up.     */
+const W=1694,H=1118,CX=847,CY=494,F=1317,CAMH=1.40;
+const TH=Math.atan((CX+53)/F), SN=Math.sin(TH), CS=Math.cos(TH);
+const P0X=1.0,P0Z=2.3;
+function world(t,o){return [P0X-SN*t+CS*o, P0Z+CS*t+SN*o];}
+const f1=n=>Math.round(n*10)/10;
+
+const PEOPLE=[
+  {t:0.00,o:0.00,h:1.70,hair:'short',pants:'#1c2438'},
+  {t:0.55,o:-0.28,h:1.60,hair:'long',pants:'#23262b'},
+  {t:1.25,o:0.04,h:1.66,hair:'pony',pants:'#2c3a55'},
+  {t:2.00,o:-0.16,h:1.58,hair:'braid',pants:'#1c2438'},
+  {t:2.80,o:0.05,h:1.72,hair:'short',pants:'#23262b'},
+  {t:3.60,o:-0.10,h:1.60,hair:'pony',pants:'#2c3a55'},
+  {t:4.45,o:0.04,h:1.63,hair:'long',pants:'#1c2438'}
+];
+const OBJ=[
+  {t:0.40,o:0.80,kind:'laptop'},
+  {t:1.30,o:0.85,kind:'ctrl'},
+  {t:2.10,o:0.82,kind:'wet'},
+  {t:2.95,o:0.85,kind:'notes'},
+  {t:3.75,o:0.85,kind:'pump'},
+  {t:4.60,o:0.82,kind:'bottles'}
+];
+const REACTOR={t:6.6,o:0.2};
+
+function personBody(p){
+  const hair='#17130f',skin='#d4a07b',shirt='#f4f0cf';
+  let s='';
+  s+=`<path d="M-0.19,-0.82 L0.19,-0.82 L0.17,-0.02 L0.035,-0.02 L0,-0.6 L-0.035,-0.02 L-0.17,-0.02Z" fill="${p.pants}"/>`;
+  s+=`<ellipse cx="-0.1" cy="-0.012" rx="0.075" ry="0.026" fill="#1a1a1a"/><ellipse cx="0.1" cy="-0.012" rx="0.075" ry="0.026" fill="#1a1a1a"/>`;
+  s+=`<path d="M-0.29,-1.24 Q-0.315,-1.05 -0.28,-0.9" stroke="${skin}" stroke-width="0.075" stroke-linecap="round" fill="none"/>`;
+  s+=`<path d="M0.29,-1.24 Q0.40,-1.08 0.49,-1.0" stroke="${skin}" stroke-width="0.075" stroke-linecap="round" fill="none"/>`;
+  s+=`<path d="M-0.20,-0.80 L-0.215,-1.26 L-0.305,-1.20 L-0.34,-1.33 L-0.23,-1.445 Q0,-1.50 0.23,-1.445 L0.34,-1.33 L0.305,-1.20 L0.215,-1.26 L0.20,-0.80 Q0,-0.775 -0.20,-0.80Z" fill="${shirt}"/>`;
+  s+=`<path d="M-0.20,-0.80 L-0.215,-1.26 L-0.305,-1.20 L-0.34,-1.33 L-0.23,-1.445 Q-0.12,-1.475 -0.08,-1.48 L-0.10,-0.79Z" fill="#6b6440" opacity=".13"/>`;
+  s+=`<rect x="-0.045" y="-1.54" width="0.09" height="0.1" fill="${skin}"/>`;
+  if(p.hair==='long') s+=`<path d="M-0.105,-1.64 Q-0.14,-1.42 -0.12,-1.24 Q0,-1.21 0.12,-1.24 Q0.14,-1.42 0.105,-1.64Z" fill="${hair}"/>`;
+  s+=`<ellipse cx="-0.098" cy="-1.605" rx="0.02" ry="0.032" fill="${skin}"/><ellipse cx="0.098" cy="-1.605" rx="0.02" ry="0.032" fill="${skin}"/>`;
+  s+=`<ellipse cx="0" cy="-1.625" rx="0.098" ry="0.118" fill="${hair}"/>`;
+  if(p.hair==='pony') s+=`<path d="M-0.025,-1.6 Q0.035,-1.46 0.0,-1.30 Q-0.04,-1.42 -0.025,-1.6Z" fill="${hair}"/>`;
+  if(p.hair==='braid') s+=`<path d="M-0.02,-1.58 Q0.02,-1.42 -0.005,-1.22" stroke="${hair}" stroke-width="0.032" fill="none" stroke-linecap="round"/>`;
+  return s;
+}
+function logo(){
+  return `<g transform="translate(0,-1.12)">
+    <ellipse cx="0" cy="-0.105" rx="0.06" ry="0.028" fill="#e2a83b"/>
+    <path d="M-0.15,-0.05 Q-0.16,-0.085 -0.12,-0.085 L0.12,-0.085 Q0.16,-0.085 0.15,-0.05 L0.145,0.03 Q0.14,0.06 0.1,0.058 L0.07,0.058 L0.06,0.11 Q0.05,0.13 0.04,0.11 L0.035,0.058 L-0.12,0.058 Q-0.155,0.058 -0.15,0.02Z" fill="#1f2f5c"/>
+    <text x="0" y="0.012" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="0.072" fill="#bfdc48" letter-spacing="-0.002">ReLEAF</text>
+  </g>`;
+}
+function objShape(kind){
+  switch(kind){
+    case 'laptop': return `<rect x="-0.18" y="-0.016" width="0.36" height="0.016" fill="#9aa0a6"/>
+      <rect x="-0.165" y="-0.245" width="0.33" height="0.23" rx="0.01" fill="#1b2230"/>
+      <rect x="-0.15" y="-0.232" width="0.30" height="0.2" fill="#0f1a2b"/>
+      <polyline points="-0.14,-0.07 -0.1,-0.09 -0.06,-0.08 -0.02,-0.12 0.02,-0.11 0.06,-0.15 0.1,-0.14 0.14,-0.17" fill="none" stroke="#ffb347" stroke-width="0.008"/>
+      <polyline points="-0.14,-0.1 -0.08,-0.11 -0.02,-0.1 0.04,-0.12 0.14,-0.12" fill="none" stroke="#35e08a" stroke-width="0.006"/>`;
+    case 'ctrl': return `<rect x="-0.12" y="-0.06" width="0.24" height="0.06" fill="#2f6f4f"/>
+      <rect x="0.03" y="-0.12" width="0.07" height="0.06" fill="#1a1a1a"/><rect x="0.037" y="-0.113" width="0.056" height="0.046" fill="#4fd1ff"/>
+      <path d="M-0.1,-0.06 Q-0.14,-0.14 -0.22,-0.02" stroke="#e24a3b" stroke-width="0.008" fill="none"/>
+      <path d="M-0.06,-0.06 Q-0.1,-0.16 -0.2,-0.0" stroke="#f2c230" stroke-width="0.008" fill="none"/>`;
+    case 'wet': return `<rect x="-0.14" y="-0.07" width="0.14" height="0.07" fill="#3a78c2"/>
+      <rect x="0.03" y="-0.19" width="0.08" height="0.19" rx="0.01" fill="#e3eef0" opacity=".95"/>
+      <rect x="0.03" y="-0.09" width="0.08" height="0.09" fill="#f0d98a" opacity=".8"/>
+      <rect x="0.035" y="-0.215" width="0.07" height="0.03" fill="#2b62b8"/>`;
+    case 'notes': return `<rect x="-0.12" y="-0.012" width="0.24" height="0.012" fill="#fafafa"/>
+      <rect x="0.05" y="-0.1" width="0.06" height="0.1" rx="0.01" fill="#6c8a7a"/>`;
+    case 'pump': return `<rect x="-0.14" y="-0.18" width="0.28" height="0.18" rx="0.012" fill="#eceff1" stroke="#b7bcc1" stroke-width="0.005"/>
+      <circle cx="-0.06" cy="-0.09" r="0.05" fill="#2a2d31"/><circle cx="-0.06" cy="-0.09" r="0.018" fill="#6f7680"/>
+      <rect x="0.03" y="-0.155" width="0.08" height="0.04" fill="#1c0806"/>
+      <text x="0.07" y="-0.123" text-anchor="middle" font-family="Menlo, monospace" font-size="0.03" fill="#ff4b3a">024</text>`;
+    case 'bottles': return `<rect x="-0.15" y="-0.24" width="0.11" height="0.24" rx="0.015" fill="#d89533" opacity=".9"/>
+      <rect x="-0.14" y="-0.27" width="0.09" height="0.035" fill="#2b62b8"/>
+      <rect x="0.02" y="-0.24" width="0.11" height="0.24" rx="0.015" fill="#e1ebec" opacity=".95"/>
+      <rect x="0.03" y="-0.27" width="0.09" height="0.035" fill="#2b62b8"/>`;
+  }
+  return '';
+}
+
+function buildLab(dir,opts){
+  opts=opts||{};
+  const P=(X,Y,Z)=>[CX+dir*F*X/Z, CY-F*(Y-CAMH)/Z];
+  const pt=a=>a.map(f1).join(',');
+  const id='l'+(dir>0?'m':'p')+(opts.labels?'x':'');
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`;
+  const farSide = dir>0 ? ['0','1'] : ['1','0'];
+  s+=`<defs>
+    <linearGradient id="${id}wall" x1="${farSide[0]}" y1="0" x2="${farSide[1]}" y2="0"><stop offset="0" stop-color="#f3f0e8"/><stop offset=".55" stop-color="#dcd8cd"/><stop offset="1" stop-color="#a9a699"/></linearGradient>
+    <linearGradient id="${id}ceil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f6e66"/><stop offset="1" stop-color="#a7a59b"/></linearGradient>
+    <linearGradient id="${id}floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b48a5b"/><stop offset="1" stop-color="#8c6843"/></linearGradient>
+    <radialGradient id="${id}glow"><stop offset="0" stop-color="#6dffa0" stop-opacity=".75"/><stop offset="1" stop-color="#6dffa0" stop-opacity="0"/></radialGradient>
+    <radialGradient id="${id}key" cx="${dir>0?0.95:0.05}" cy="1" r="1"><stop offset="0" stop-color="#ffe7b0" stop-opacity=".22"/><stop offset="1" stop-color="#ffe7b0" stop-opacity="0"/></radialGradient>
+    <filter id="${id}blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>`;
+  // room: back wall at Z 9.5, ceiling 3.0 m, right-hand wall X 2.6
+  const ZW=9.5, yTop=P(0,3.0,ZW)[1], yBot=P(0,0,ZW)[1];
+  s+=`<rect x="0" y="0" width="${W}" height="${f1(yTop)}" fill="url(#${id}ceil)"/>`;
+  s+=`<rect x="0" y="${f1(yTop)}" width="${W}" height="${f1(yBot-yTop)}" fill="url(#${id}wall)"/>`;
+  // whiteboard on the far wall, on the far side of the queue
+  const wb=[P(-4.4,2.15,ZW),P(-1.5,2.15,ZW),P(-1.5,0.95,ZW),P(-4.4,0.95,ZW)];
+  s+=`<polygon points="${wb.map(pt).join(' ')}" fill="#fbfbf7" stroke="#c9c7bd" stroke-width="3"/>`;
+  const wbx=Math.min(wb[0][0],wb[1][0]), wbw=Math.abs(wb[1][0]-wb[0][0]), wby=wb[0][1], wbh=wb[2][1]-wb[0][1];
+  s+=`<text x="${f1(wbx+wbw*0.12)}" y="${f1(wby+wbh*0.3)}" font-family="Segoe Print, Bradley Hand, cursive" font-size="${f1(wbh*0.2)}" fill="#3aa56b" opacity=".75">ReLEAF</text>`;
+  for(let i=0;i<4;i++){const yy=wby+wbh*(0.46+i*0.13);s+=`<line x1="${f1(wbx+wbw*0.1)}" y1="${f1(yy)}" x2="${f1(wbx+wbw*(0.5+0.1*(i%3)))}" y2="${f1(yy)}" stroke="#4b6fb0" stroke-width="3" opacity=".45"/>`;}
+  // dark right-hand wall with a tall cabinet: the mirror of the trees
+  const rw=[P(2.6,3.0,2.2),P(2.6,3.0,ZW),P(2.6,0,ZW),P(2.6,0,2.2)];
+  s+=`<polygon points="${rw.map(pt).join(' ')}" fill="#4a524b"/>`;
+  const cab=[P(2.55,2.3,4.2),P(2.55,2.3,8.6),P(2.55,0,8.6),P(2.55,0,4.2)];
+  s+=`<polygon points="${cab.map(pt).join(' ')}" fill="#2f3831"/>`;
+  for(const yy of [0.6,1.15,1.7]){const a=P(2.55,yy,4.2),b=P(2.55,yy,8.6);s+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" stroke="#5c665e" stroke-width="4"/>`;}
+  // floor
+  s+=`<rect x="0" y="${f1(yBot)}" width="${W}" height="${f1(H-yBot)}" fill="url(#${id}floor)"/>`;
+  s+=`<line x1="0" y1="${f1(yBot)}" x2="${W}" y2="${f1(yBot)}" stroke="#8f8b80" stroke-width="4"/>`;
+  // floor re-covers the base of the right wall below its own line
+  const fl=[P(2.6,0,2.2),P(2.6,0,ZW),[dir>0?W:0,yBot],[dir>0?W:0,H]];
+  s+=`<polygon points="${fl.map(pt).join(' ')}" fill="url(#${id}floor)"/>`;
+
+  const draw=[]; // [Z, svg]
+  // reactor cart + reactor, on the queue line
+  {
+    const c=[world(6.3,-0.12),world(6.9,-0.12),world(6.9,0.52),world(6.3,0.52)];
+    const top=c.map(q=>P(q[0],0.76,q[1]));
+    const nearA=P(c[0][0],0.76,c[0][1]), nearB=P(c[3][0],0.76,c[3][1]);
+    const nearA0=P(c[0][0],0.66,c[0][1]), nearB0=P(c[3][0],0.66,c[3][1]);
+    let g=`<polygon points="${top.map(pt).join(' ')}" fill="#d6d2c8"/>`;
+    g+=`<polygon points="${[nearA,nearB,nearB0,nearA0].map(pt).join(' ')}" fill="#8b8a84"/>`;
+    for(const q of [c[0],c[3]]){const a=P(q[0],0.66,q[1]),b=P(q[0],0,q[1]);g+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" stroke="#2b2b2b" stroke-width="${f1(F/q[1]*0.035)}"/>`;}
+    const w=world(REACTOR.t,REACTOR.o), b=P(w[0],0.76,w[1]), k=F/w[1];
+    g+=`<ellipse cx="${f1(b[0])}" cy="${f1(b[1]-0.5*k)}" rx="${f1(0.42*k)}" ry="${f1(0.62*k)}" fill="url(#${id}glow)"/>`;
+    g+=`<g transform="translate(${f1(b[0])},${f1(b[1])}) scale(${f1(k*dir)},${f1(k)})">
+      <rect x="-0.2" y="-0.025" width="0.4" height="0.025" fill="#f4f4f2"/>
+      <rect x="-0.155" y="-1.02" width="0.02" height="1.0" fill="#9aa3ab"/>
+      <rect x="-0.16" y="-0.86" width="0.14" height="0.02" fill="#7c858d"/><rect x="-0.16" y="-0.48" width="0.14" height="0.02" fill="#7c858d"/>
+      <rect x="-0.045" y="-0.9" width="0.09" height="0.7" rx="0.03" fill="#e8f6ef" opacity=".85" stroke="#c4d6cc" stroke-width="0.006"/>
+      <rect x="-0.038" y="-0.64" width="0.076" height="0.42" rx="0.025" fill="#74e39a"/>
+      <rect x="-0.05" y="-0.93" width="0.1" height="0.035" fill="#2b62b8"/>
+      <path d="M0.0,-0.93 Q0.02,-1.08 0.2,-1.0 Q0.4,-0.9 0.55,-0.2" stroke="#e9ecef" stroke-width="0.014" fill="none"/>
+      <path d="M0.03,-0.93 Q0.08,-1.12 0.28,-1.02 Q0.5,-0.9 0.7,-0.25" stroke="#dfe3e6" stroke-width="0.012" fill="none"/>
+    </g>`;
+    draw.push([w[1]+0.4,g]);
+  }
+  // bench: runs along the people's right-hand side
+  {
+    const t0=-1.6,t1=5.4,a=0.5,b=1.2,Y=0.76;
+    const A=world(t0,a),B=world(t1,a),C=world(t1,b),D=world(t0,b);
+    const top=[A,B,C,D].map(q=>P(q[0],Y,q[1]));
+    let g=`<polygon points="${top.map(pt).join(' ')}" fill="#c99b66"/>`;
+    const apr=[P(A[0],Y,A[1]),P(B[0],Y,B[1]),P(B[0],0.67,B[1]),P(A[0],0.67,A[1])];
+    g+=`<polygon points="${apr.map(pt).join(' ')}" fill="#7a5533"/>`;
+    const endF=[P(B[0],Y,B[1]),P(C[0],Y,C[1]),P(C[0],0.67,C[1]),P(B[0],0.67,B[1])];
+    g+=`<polygon points="${endF.map(pt).join(' ')}" fill="#5d4027"/>`;
+    for(let t=-1.4;t<=t1;t+=1.7){const q=world(t,a+0.05);const u=P(q[0],0.67,q[1]),v=P(q[0],0,q[1]);g+=`<line x1="${f1(u[0])}" y1="${f1(u[1])}" x2="${f1(v[0])}" y2="${f1(v[1])}" stroke="#262626" stroke-width="${f1(F/q[1]*0.045)}"/>`;}
+    const qe=world(t1,b-0.05);{const u=P(qe[0],0.67,qe[1]),v=P(qe[0],0,qe[1]);g+=`<line x1="${f1(u[0])}" y1="${f1(u[1])}" x2="${f1(v[0])}" y2="${f1(v[1])}" stroke="#262626" stroke-width="${f1(F/qe[1]*0.045)}"/>`;}
+    const l1=P(A[0],0.715,A[1]), l2=P(B[0],0.715,B[1]);
+    g+=`<line x1="${f1(l1[0])}" y1="${f1(l1[1])}" x2="${f1(l2[0])}" y2="${f1(l2[1])}" stroke="#58ff95" stroke-width="16" filter="url(#${id}blur)" opacity=".9"/>`;
+    g+=`<line x1="${f1(l1[0])}" y1="${f1(l1[1])}" x2="${f1(l2[0])}" y2="${f1(l2[1])}" stroke="#c9ffd9" stroke-width="4"/>`;
+    draw.push([99,g]); // bench goes down first, everything else sorts over it
+  }
+  for(const o of OBJ){
+    const w=world(o.t,o.o), b=P(w[0],0.76,w[1]), k=F/w[1];
+    draw.push([w[1],`<g transform="translate(${f1(b[0])},${f1(b[1])}) scale(${f1(k)})">${objShape(o.kind)}</g>`]);
+  }
+  // pump-to-reactor tubing laid along the bench
+  {
+    const a=world(3.75,0.85), m=world(5.3,0.8), r=world(REACTOR.t-0.05,REACTOR.o+0.1);
+    const pa=P(a[0],0.94,a[1]), pm=P(m[0],0.8,m[1]), pr=P(r[0],1.62,r[1]);
+    draw.push([m[1]+0.3,`<path d="M${pt(pa)} Q${pt(pm)} ${pt(pr)}" stroke="#eef1f2" stroke-width="5" fill="none" opacity=".9"/>`]);
+  }
+  const lab=[];
+  PEOPLE.forEach((p,i)=>{
+    const w=world(p.t,p.o), b=P(w[0],0,w[1]), kk=F/w[1]*p.h/1.7;
+    let g=`<ellipse cx="${f1(b[0]+dir*0.15*kk)}" cy="${f1(b[1])}" rx="${f1(0.34*kk)}" ry="${f1(0.06*kk)}" fill="#2b1d10" opacity=".22"/>`;
+    g+=`<g transform="translate(${f1(b[0])},${f1(b[1])}) scale(${f1(kk*dir)},${f1(kk)})">${personBody(p)}</g>`;
+    g+=`<g transform="translate(${f1(b[0])},${f1(b[1])}) scale(${f1(kk)})">${logo()}</g>`;
+    draw.push([w[1],g]);
+    lab.push({n:i+1,x:b[0],y:b[1]-1.7*kk,k:kk});
+  });
+  draw.sort((a,b)=>b[0]-a[0]);
+  s+=draw.map(d=>d[1]).join('');
+  // warm key light from behind the camera
+  s+=`<rect x="0" y="0" width="${W}" height="${H}" fill="url(#${id}key)"/>`;
+
+  if(opts.labels){
+    const T=(x,y,t,anchor,col)=>`<text x="${f1(x)}" y="${f1(y)}" text-anchor="${anchor||'start'}" fill="${col||'#fff'}" font-family="IBM Plex Sans, Arial, sans-serif" font-weight="700" font-size="30" paint-order="stroke" stroke="#070b09" stroke-width="7" stroke-linejoin="round">${t}</text>`;
+    s+=`<line x1="0" y1="${CY}" x2="${W}" y2="${CY}" stroke="#ffcf3a" stroke-width="3" stroke-dasharray="14 10"/>`;
+    const h1=PEOPLE[0].h, n1=world(0,0), hd=P(n1[0],1.745*h1/1.7,n1[1]), hm=P(n1[0],0.8*h1/1.7,n1[1]);
+    const vx=dir>0?-53:W+53;
+    s+=`<line x1="${f1(hd[0]+dir*120)}" y1="${f1(hd[1]-dir*0)}" x2="${vx}" y2="${CY}" stroke="#ffcf3a" stroke-width="4" opacity=".9"/>`;
+    s+=`<line x1="${f1(hm[0]+dir*150)}" y1="${f1(hm[1]+60)}" x2="${vx}" y2="${CY}" stroke="#ffcf3a" stroke-width="4" opacity=".9"/>`;
+    lab.forEach(q=>{const cy=q.y-26;s+=`<circle cx="${f1(q.x)}" cy="${f1(cy)}" r="21" fill="#35e08a"/><text x="${f1(q.x)}" y="${f1(cy+9)}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="26" fill="#070b09">${q.n}</text>`;});
+    const rw2=world(REACTOR.t,REACTOR.o), rv=P(rw2[0],1.2,rw2[1]), rf=P(rw2[0],0,rw2[1]);
+    const lx=rv[0]-dir*40, ly=rf[1]+120;
+    s+=`<line x1="${f1(rv[0])}" y1="${f1(rv[1]+40)}" x2="${f1(lx)}" y2="${f1(ly-34)}" stroke="#8dffb6" stroke-width="3"/>`;
+    s+=T(lx,ly,'Bioreactor = where Farmer Chen stands',dir>0?'start':'end','#8dffb6');
+    s+=T(24,CY-14,'Horizon 44%','start','#ffcf3a');
+    s+=T(wbx+wbw/2,wby-16,'Whiteboard / bright wall = the sky','middle');
+    s+=T(dir>0?W-24:24,150,'Dark cabinet = the trees',dir>0?'end':'start');
+    s+=T(dir>0?40:W-40,1060,'Open floor = the grass',dir>0?'start':'end');
+    const led=P(world(1.6,0.5)[0],0.72,world(1.6,0.5)[1]);
+    s+=T(led[0]+60,led[1]+62,'LED strip','start','#9dffc0');
+    const lg=P(n1[0],1.12*h1/1.7,n1[1]);
+    s+=T(lg[0],lg[1]+120,'Logo (84%, 60%)','middle','#35e08a');
+  }
+  s+='</svg>';
+  return s;
+}
+const toURL=svg=>'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+const URLS={mirror:toURL(buildLab(1)), parallel:toURL(buildLab(-1))};
+document.querySelectorAll('img[data-lab]').forEach(img=>{img.src=URLS[img.dataset.lab];});
+
+// big labelled sketch, inline so it picks up the page's fonts
+document.getElementById('sketchFig').innerHTML=buildLab(1,{labels:true}).replace('<svg ','<svg role="img" aria-label="Drawing of the right photo: seven people, backs to the camera, in a line along a lab bench receding to the back left, with the bioreactor at the head of the line" ');
+
+/* ---------- guides on each half ------------------------------------------ */
+function guides(kind){
+  const Y='#ffcf3a';
+  let vx, lines;
+  if(kind==='farm'){vx=1747; lines=[[150,316],[120,895]];}
+  else if(kind==='mirror'){vx=-53; lines=[[1544,293],[1574,874]];}
+  else {vx=1747; lines=[[150,293],[120,874]];}
+  let s=`<line x1="-40" y1="${CY}" x2="1734" y2="${CY}" stroke="${Y}" stroke-width="5" stroke-dasharray="18 12"/>`;
+  lines.forEach(l=>{s+=`<line x1="${l[0]}" y1="${l[1]}" x2="${vx}" y2="${CY}" stroke="${Y}" stroke-width="6" opacity=".9"/>`;});
+  s+=`<circle cx="${vx}" cy="${CY}" r="16" fill="${Y}"/>`;
+  return s;
+}
+document.querySelectorAll('svg.guides').forEach(g=>{g.innerHTML=guides(g.dataset.g);});
+const gt=document.getElementById('guideToggle'), root=document.getElementById('optionsRoot');
+gt.addEventListener('change',()=>root.classList.toggle('show-guides',gt.checked));
+
+/* ---------- seam toggle -------------------------------------------------- */
+const dipA=document.getElementById('dipA'), bH=document.getElementById('seamHard'), bS=document.getElementById('seamSoft');
+function seam(soft){dipA.classList.toggle('feather',soft);bH.setAttribute('aria-pressed',String(!soft));bS.setAttribute('aria-pressed',String(soft));}
+bH.addEventListener('click',()=>seam(false)); bS.addEventListener('click',()=>seam(true));
+
+/* ---------- wipe --------------------------------------------------------- */
+const wr=document.getElementById('wipeRange'), wp=document.getElementById('wipe'), wl=document.getElementById('wipeLine');
+function wipe(){const v=100-Number(wr.value);wp.style.clipPath=`inset(0 0 0 ${v}%)`;wl.style.left=`calc(${v}% - 1px)`;}
+wr.addEventListener('input',wipe); wipe();
+
+/* ---------- floor plan (camera looks right; its right hand is down) ------ */
+(function plan(){
+  const S=58, ox=70, oy=40, Xmin=-4.6;
+  const m=(X,Z)=>[ox+(Z+1.2)*S, oy+(X-Xmin)*S];
+  const q=a=>a.map(f1).join(',');
+  const css=getComputedStyle(document.documentElement);
+  const text='var(--text)', muted='var(--muted)', acc='var(--accent)';
+  let s=`<svg viewBox="0 0 770 520" role="img" aria-label="Floor plan: camera on the left, the line running 34 degrees left of the camera axis, the bioreactor about 8 m away">`;
+  // grid
+  for(let z=0;z<=10;z++){const a=m(Xmin,z),b=m(3.4,z);s+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" stroke="var(--line)" stroke-width="1"/>`;}
+  for(let x=-4;x<=3;x++){const a=m(x,-1.2),b=m(x,10.2);s+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" stroke="var(--line)" stroke-width="1"/>`;}
+  // walls
+  const w1=m(-4.6,9.5),w2=m(3.3,9.5); s+=`<line x1="${f1(w1[0])}" y1="${f1(w1[1])}" x2="${f1(w2[0])}" y2="${f1(w2[1])}" stroke="${muted}" stroke-width="4"/>`;
+  const wbA=m(-4.4,9.5),wbB=m(-1.5,9.5); s+=`<line x1="${f1(wbA[0])}" y1="${f1(wbA[1])}" x2="${f1(wbB[0])}" y2="${f1(wbB[1])}" stroke="#4b6fb0" stroke-width="9"/>`;
+  s+=`<text x="${f1(wbA[0]+14)}" y="${f1((wbA[1]+wbB[1])/2)}" font-size="13" fill="${muted}" dominant-baseline="middle">Whiteboard (bright)</text>`;
+  const r1=m(2.6,2.2),r2=m(2.6,9.5); s+=`<line x1="${f1(r1[0])}" y1="${f1(r1[1])}" x2="${f1(r2[0])}" y2="${f1(r2[1])}" stroke="${muted}" stroke-width="4"/>`;
+  const c1=m(2.3,4.2),c2=m(2.6,8.6); s+=`<rect x="${f1(c1[0])}" y="${f1(c1[1])}" width="${f1(c2[0]-c1[0])}" height="${f1(c2[1]-c1[1])}" fill="#3a443c"/>`;
+  s+=`<text x="${f1((c1[0]+c2[0])/2)}" y="${f1(c2[1]+16)}" font-size="13" fill="${muted}" text-anchor="middle">Dark cabinet</text>`;
+  // camera FOV
+  const half=Math.atan(CX/F), L=10.2;
+  const fa=m(-Math.tan(half)*L,L), fb=m(Math.tan(half)*L,L), cam=m(0,0);
+  s+=`<polygon points="${q(cam)} ${q(fa)} ${q(fb)}" fill="var(--accent-soft)" opacity=".7"/>`;
+  s+=`<line x1="${f1(cam[0])}" y1="${f1(cam[1])}" x2="${f1(m(0,10)[0])}" y2="${f1(cam[1])}" stroke="${muted}" stroke-dasharray="6 6"/>`;
+  s+=`<text x="${f1(m(0,9.2)[0])}" y="${f1(cam[1]-8)}" font-size="12" fill="${muted}" text-anchor="middle">Camera axis</text>`;
+  // bench
+  const bA=world(-1.6,0.5),bB=world(5.4,0.5),bC=world(5.4,1.2),bD=world(-1.6,1.2);
+  s+=`<polygon points="${[bA,bB,bC,bD].map(v=>q(m(v[0],v[1]))).join(' ')}" fill="#c99b66" stroke="#7a5533"/>`;
+  const bl=m(...world(2.2,1.45));
+  s+=`<text x="${f1(bl[0])}" y="${f1(bl[1])}" font-size="13" fill="${text}" text-anchor="middle" transform="rotate(${f1(-TH*180/Math.PI)} ${f1(bl[0])} ${f1(bl[1])})">Bench (LED strip facing the people)</text>`;
+  // queue line
+  const qa=m(...world(-0.3,0)), qb=m(...world(6.6,0));
+  s+=`<line x1="${f1(qa[0])}" y1="${f1(qa[1])}" x2="${f1(qb[0])}" y2="${f1(qb[1])}" stroke="${acc}" stroke-width="2" stroke-dasharray="4 5"/>`;
+  // reactor cart
+  const rc=[world(6.3,-0.12),world(6.9,-0.12),world(6.9,0.52),world(6.3,0.52)];
+  s+=`<polygon points="${rc.map(v=>q(m(v[0],v[1]))).join(' ')}" fill="#d6d2c8" stroke="${muted}"/>`;
+  const rp=m(...world(REACTOR.t,REACTOR.o));
+  s+=`<circle cx="${f1(rp[0])}" cy="${f1(rp[1])}" r="11" fill="#35e08a" stroke="#0b5b33" stroke-width="2"/>`;
+  s+=`<text x="${f1(rp[0]+18)}" y="${f1(rp[1]-12)}" font-size="13" font-weight="700" fill="${text}">Bioreactor</text>`;
+  // people
+  PEOPLE.forEach((p,i)=>{
+    const w=world(p.t,p.o), c=m(w[0],w[1]);
+    const ah=m(w[0]-SN*0.45,w[1]+CS*0.45);
+    s+=`<line x1="${f1(c[0])}" y1="${f1(c[1])}" x2="${f1(ah[0])}" y2="${f1(ah[1])}" stroke="${text}" stroke-width="2"/>`;
+    s+=`<circle cx="${f1(c[0])}" cy="${f1(c[1])}" r="12" fill="#f4f0cf" stroke="${text}" stroke-width="1.5"/>`;
+    s+=`<text x="${f1(c[0])}" y="${f1(c[1]+4.5)}" font-size="12" font-weight="700" fill="#141a17" text-anchor="middle" font-family="IBM Plex Mono, monospace">${i+1}</text>`;
+  });
+  // camera + key light
+  s+=`<rect x="${f1(cam[0]-16)}" y="${f1(cam[1]-11)}" width="24" height="22" rx="3" fill="${text}"/><polygon points="${f1(cam[0]+8)},${f1(cam[1]-7)} ${f1(cam[0]+18)},${f1(cam[1]-11)} ${f1(cam[0]+18)},${f1(cam[1]+11)} ${f1(cam[0]+8)},${f1(cam[1]+7)}" fill="${text}"/>`;
+  s+=`<text x="${f1(cam[0]-6)}" y="${f1(cam[1]+30)}" font-size="12" fill="${text}" text-anchor="middle">Camera, 1.40 m</text>`;
+  const kl=m(1.5,-0.9);
+  s+=`<circle cx="${f1(kl[0])}" cy="${f1(kl[1])}" r="10" fill="#ffcf3a" stroke="#9a7400"/>`;
+  s+=`<text x="${f1(kl[0]+2)}" y="${f1(kl[1]+28)}" font-size="12" fill="${text}" text-anchor="middle">Key light, 2 m up</text>`;
+  // dimensions
+  const p1=m(...world(0,0));
+  s+=`<line x1="${f1(cam[0]+18)}" y1="${f1(cam[1])}" x2="${f1(p1[0]-12)}" y2="${f1(p1[1]-6)}" stroke="${acc}" stroke-width="1.5"/>`;
+  s+=`<text x="${f1((cam[0]+p1[0])/2+6)}" y="${f1((cam[1]+p1[1])/2+20)}" font-size="13" font-weight="700" fill="${acc}">2.3 m</text>`;
+  s+=`<text x="${f1(rp[0]+18)}" y="${f1(rp[1]+8)}" font-size="13" font-weight="700" fill="${acc}">≈ 8.3 m from camera</text>`;
+  const arcR=4.2*S, a0=0, a1=-TH;
+  const ax=cam[0]+arcR*Math.cos(a1), ay=cam[1]+arcR*Math.sin(a1);
+  s+=`<path d="M${f1(cam[0]+arcR)},${f1(cam[1])} A${f1(arcR)},${f1(arcR)} 0 0 0 ${f1(ax)},${f1(ay)}" fill="none" stroke="${acc}" stroke-width="1.5"/>`;
+  s+=`<text x="${f1(cam[0]+arcR+8)}" y="${f1(cam[1]-arcR*0.22)}" font-size="13" font-weight="700" fill="${acc}">34°</text>`;
+  s+=`<text x="${f1(m(0,5.2)[0])}" y="${f1(m(-4.4,0)[1]+4)}" font-size="12" fill="${muted}">Grid 1 m</text>`;
+  s+='</svg>';
+  document.getElementById('planWrap').innerHTML=s;
+})();
+})();
+</script>
+
+</body>
+</html>
